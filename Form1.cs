@@ -29,12 +29,28 @@ namespace CelestialWeaver
 
         private void 내역불러오기ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Form form = Application.OpenForms["FormHistory"];
+            if (form == null)
+            {
+                FormHistory formHistory = new FormHistory(this);
+                formHistory.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
 
+        public void LoadHistory(string question, string result)
+        {
+            tbWhoAmI.Text = question;
+            tbResult.Text = result;
         }
 
         private void 하늘의직조공정보ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormAbout form = new FormAbout();
+            form.ShowDialog();
         }
     }
 }
